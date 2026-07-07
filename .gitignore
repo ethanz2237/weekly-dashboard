@@ -1,0 +1,22 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+output/
+data/raw/
+data/processed/
+*.parquet
+*.csv
+!data/manual/
+!data/manual/china_rates.csv
+
+# Tool caches
+.ruff_cache/
+
+# Build / packaging artifacts
+*.egg-info/
+dist/
+build/

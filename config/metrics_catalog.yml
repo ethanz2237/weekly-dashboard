@@ -1,0 +1,3094 @@
+metrics:
+- metric_id: sp500
+  display_name: S&P 500
+  asset_class: equity
+  region: US
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: ^GSPC
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: MVP yfinance equity index.
+- metric_id: nasdaq100
+  display_name: Nasdaq 100
+  asset_class: equity
+  region: US
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: ^NDX
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: MVP yfinance equity index.
+- metric_id: csi300
+  display_name: CSI300
+  asset_class: equity
+  region: China
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: 000300.SS
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: yfinance CSI 300 index; Yahoo coverage can lag China holidays.
+- metric_id: chinext
+  display_name: ChiNext
+  asset_class: equity
+  region: China
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: 399006.SZ
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: yfinance ChiNext index; Yahoo coverage can be sparse around recent sessions.
+- metric_id: hsi
+  display_name: Hang Seng Index
+  asset_class: equity
+  region: Hong Kong
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: ^HSI
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: yfinance Hang Seng Index.
+- metric_id: hstech
+  display_name: Hang Seng Tech Index
+  asset_class: equity
+  region: Hong Kong
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: 3033.HK
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: yfinance HSTECH ETF proxy because the cash index symbol is less stable on
+    free feeds.
+- metric_id: ah_premium
+  display_name: AH Premium
+  asset_class: equity
+  region: Hong Kong/China
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: TBD
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned public equity metric; fetcher routing not enabled yet.
+- metric_id: stoxx50
+  display_name: STOXX50
+  asset_class: equity
+  region: Europe
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: ^STOXX50E
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: yfinance EURO STOXX 50 index.
+- metric_id: stoxx600
+  display_name: STOXX600
+  asset_class: equity
+  region: Europe
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: ^STOXX
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: yfinance STOXX Europe 600 index.
+- metric_id: nikkei225
+  display_name: Nikkei 225
+  asset_class: equity
+  region: Japan
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series:
+  - ^N225
+  - 1321.T
+  - 1329.T
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: yfinance Nikkei 225 index with ETF fallbacks for intermittent index feed
+    gaps.
+- metric_id: topix
+  display_name: TOPIX
+  asset_class: equity
+  region: Japan
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series:
+  - ^TOPX
+  - 1306.T
+  - 1475.T
+  - 1308.T
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: yfinance TOPIX cash index with ETF fallbacks because Japan symbols are less
+    stable on free feeds.
+- metric_id: kospi
+  display_name: KOSPI
+  asset_class: equity
+  region: Korea
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: ^KS11
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: yfinance KOSPI index.
+- metric_id: twse
+  display_name: TWSE
+  asset_class: equity
+  region: Taiwan
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: ^TWII
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: yfinance Taiwan Weighted Index.
+- metric_id: nifty50
+  display_name: Nifty 50
+  asset_class: equity
+  region: India
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: ^NSEI
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: yfinance Nifty 50 index.
+- metric_id: idx
+  display_name: IDX Composite
+  asset_class: equity
+  region: Indonesia
+  group: equity_indices
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: ^JKSE
+  frequency: daily
+  unit: index_points
+  transform: percentage_return
+  chart_type: line
+  fallback_source: stooq
+  premium_required: false
+  implemented: true
+  notes: yfinance IDX Composite index.
+- metric_id: growth_vs_value_proxy
+  display_name: Growth vs Value Proxy
+  asset_class: equity
+  region: US
+  group: equity_style
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: percent
+  transform: percentage_return
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Computed as IWF / IWD from yfinance ETF prices; ratio index, not a fundamental
+    style model.
+- metric_id: defensives_vs_cyclicals_proxy
+  display_name: Defensives vs Cyclicals Proxy
+  asset_class: equity
+  region: US
+  group: equity_style
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: percent
+  transform: percentage_return
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Computed as equal-weight defensive sector ETFs divided by equal-weight cyclical
+    sector ETFs; proxy only.
+- metric_id: us_sector_etf_heatmap
+  display_name: US Sector ETF Heatmap
+  asset_class: equity
+  region: US
+  group: equity_sectors
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: percent
+  transform: percentage_return
+  chart_type: heatmap
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Computed from yfinance Select Sector SPDR ETF returns.
+- metric_id: iwf
+  display_name: iShares Russell 1000 Growth ETF
+  asset_class: equity
+  region: US
+  group: equity_style_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: IWF
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for growth_vs_value_proxy.
+- metric_id: iwd
+  display_name: iShares Russell 1000 Value ETF
+  asset_class: equity
+  region: US
+  group: equity_style_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: IWD
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for growth_vs_value_proxy.
+- metric_id: xlp
+  display_name: Consumer Staples Select Sector SPDR
+  asset_class: equity
+  region: US
+  group: equity_sector_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: XLP
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for defensives and sector heatmap.
+- metric_id: xlu
+  display_name: Utilities Select Sector SPDR
+  asset_class: equity
+  region: US
+  group: equity_sector_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: XLU
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for defensives and sector heatmap.
+- metric_id: xlv
+  display_name: Health Care Select Sector SPDR
+  asset_class: equity
+  region: US
+  group: equity_sector_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: XLV
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for defensives and sector heatmap.
+- metric_id: xly
+  display_name: Consumer Discretionary Select Sector SPDR
+  asset_class: equity
+  region: US
+  group: equity_sector_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: XLY
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for cyclicals and sector heatmap.
+- metric_id: xli
+  display_name: Industrial Select Sector SPDR
+  asset_class: equity
+  region: US
+  group: equity_sector_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: XLI
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for cyclicals and sector heatmap.
+- metric_id: xlf
+  display_name: Financial Select Sector SPDR
+  asset_class: equity
+  region: US
+  group: equity_sector_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: XLF
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for cyclicals and sector heatmap.
+- metric_id: xlk
+  display_name: Technology Select Sector SPDR
+  asset_class: equity
+  region: US
+  group: equity_sector_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: XLK
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for sector heatmap.
+- metric_id: xle
+  display_name: Energy Select Sector SPDR
+  asset_class: equity
+  region: US
+  group: equity_sector_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: XLE
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for sector heatmap.
+- metric_id: xlb
+  display_name: Materials Select Sector SPDR
+  asset_class: equity
+  region: US
+  group: equity_sector_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: XLB
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for sector heatmap.
+- metric_id: xlre
+  display_name: Real Estate Select Sector SPDR
+  asset_class: equity
+  region: US
+  group: equity_sector_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: XLRE
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for sector heatmap.
+- metric_id: xlc
+  display_name: Communication Services Select Sector SPDR
+  asset_class: equity
+  region: US
+  group: equity_sector_inputs
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: XLC
+  frequency: daily
+  unit: price
+  transform: percentage_return
+  chart_type: hidden
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Input for sector heatmap.
+- metric_id: hk_sector_heatmap
+  display_name: HK Sector Heatmap
+  asset_class: equity
+  region: Hong Kong
+  group: equity_sectors
+  source: manual CSV fallback
+  provider: manual_china
+  ticker_or_series: cgb_2y
+  frequency: daily
+  unit: percent
+  transform: percentage_return
+  chart_type: heatmap
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Placeholder until sector source is selected.
+- metric_id: global_sector_heatmap
+  display_name: Global Sector Heatmap
+  asset_class: equity
+  region: Global
+  group: equity_sectors
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: percentage_return
+  chart_type: heatmap
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Placeholder until global sector source is selected.
+- metric_id: us_1m_yield
+  display_name: US 1M Treasury Yield
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: FRED
+  provider: fred
+  ticker_or_series: DGS1MO
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: treasury
+  premium_required: false
+  implemented: true
+  tenor: 1M
+  tenor_order: 1
+  curve_group: us_treasury_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: FRED Treasury constant maturity yield; part of full UST curve ladder.
+- metric_id: us_3m_yield
+  display_name: US 3M Treasury Yield
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: FRED
+  provider: fred
+  ticker_or_series: DGS3MO
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: treasury
+  premium_required: false
+  implemented: true
+  tenor: 3M
+  tenor_order: 2
+  curve_group: us_treasury_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: FRED Treasury constant maturity yield; part of full UST curve ladder.
+- metric_id: us_6m_yield
+  display_name: US 6M Treasury Yield
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: FRED
+  provider: fred
+  ticker_or_series: DGS6MO
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: treasury
+  premium_required: false
+  implemented: true
+  tenor: 6M
+  tenor_order: 3
+  curve_group: us_treasury_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: FRED Treasury constant maturity yield; part of full UST curve ladder.
+- metric_id: us_1y_yield
+  display_name: US 1Y Treasury Yield
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: FRED
+  provider: fred
+  ticker_or_series: DGS1
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: treasury
+  premium_required: false
+  implemented: true
+  tenor: 1Y
+  tenor_order: 4
+  curve_group: us_treasury_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: FRED Treasury constant maturity yield; part of full UST curve ladder.
+- metric_id: us_2y_yield
+  display_name: US 2Y Treasury Yield
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: FRED
+  provider: fred
+  ticker_or_series: DGS2
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: treasury
+  premium_required: false
+  implemented: true
+  tenor: 2Y
+  tenor_order: 5
+  curve_group: us_treasury_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: FRED Treasury constant maturity yield; key dashboard highlight tenor.
+- metric_id: us_3y_yield
+  display_name: US 3Y Treasury Yield
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: FRED
+  provider: fred
+  ticker_or_series: DGS3
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: treasury
+  premium_required: false
+  implemented: true
+  tenor: 3Y
+  tenor_order: 6
+  curve_group: us_treasury_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: FRED Treasury constant maturity yield; part of full UST curve ladder.
+- metric_id: us_5y_yield
+  display_name: US 5Y Treasury Yield
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: FRED
+  provider: fred
+  ticker_or_series: DGS5
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: treasury
+  premium_required: false
+  implemented: true
+  tenor: 5Y
+  tenor_order: 7
+  curve_group: us_treasury_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: FRED Treasury constant maturity yield; key dashboard highlight tenor.
+- metric_id: us_7y_yield
+  display_name: US 7Y Treasury Yield
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: FRED
+  provider: fred
+  ticker_or_series: DGS7
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: treasury
+  premium_required: false
+  implemented: true
+  tenor: 7Y
+  tenor_order: 8
+  curve_group: us_treasury_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: FRED Treasury constant maturity yield; part of full UST curve ladder.
+- metric_id: us_10y_yield
+  display_name: US 10Y Treasury Yield
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: FRED
+  provider: fred
+  ticker_or_series: DGS10
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: treasury
+  premium_required: false
+  implemented: true
+  tenor: 10Y
+  tenor_order: 9
+  curve_group: us_treasury_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: FRED Treasury constant maturity yield; key dashboard highlight tenor.
+- metric_id: us_20y_yield
+  display_name: US 20Y Treasury Yield
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: FRED
+  provider: fred
+  ticker_or_series: DGS20
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: treasury
+  premium_required: false
+  implemented: true
+  tenor: 20Y
+  tenor_order: 10
+  curve_group: us_treasury_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: FRED Treasury constant maturity yield; part of full UST curve ladder.
+- metric_id: us_30y_yield
+  display_name: US 30Y Treasury Yield
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: FRED
+  provider: fred
+  ticker_or_series: DGS30
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: treasury
+  premium_required: false
+  implemented: true
+  tenor: 30Y
+  tenor_order: 11
+  curve_group: us_treasury_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: FRED Treasury constant maturity yield; key dashboard highlight tenor.
+- metric_id: us_2s10s
+  display_name: US 2s10s Treasury Spread
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  is_derived: true
+  notes: Derived from the full UST curve tenor series in transforms.
+- metric_id: us_5s30s
+  display_name: US 5s30s Treasury Spread
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  is_derived: true
+  notes: Derived from the full UST curve tenor series in transforms.
+- metric_id: us_10s30s
+  display_name: US 10s30s Treasury Spread
+  asset_class: rates
+  region: US
+  group: us_treasury_curve
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  is_derived: true
+  notes: Derived from the full UST curve tenor series in transforms.
+- metric_id: cme_fedwatch
+  display_name: CME FedWatch
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Placeholder for futures-implied policy probabilities.
+- metric_id: us_3m_tbill_yield
+  display_name: US 3M Treasury Yield
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: FRED
+  provider: fred
+  ticker_or_series: DGS3MO
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: FRED 3-month Treasury constant maturity yield.
+- metric_id: us_3m_yield_minus_ois
+  display_name: US 3M Yield Minus OIS
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: 'Not implemented: no free OIS source is available in the current FRED/yfinance/HKMA
+    source set.'
+- metric_id: effr
+  display_name: EFFR
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: FRED
+  provider: fred
+  ticker_or_series: EFFR
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: MVP FRED Effective Federal Funds Rate.
+- metric_id: sofr
+  display_name: SOFR
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: FRED
+  provider: fred
+  ticker_or_series: SOFR
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: MVP FRED Secured Overnight Financing Rate.
+- metric_id: iorb
+  display_name: IORB
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: FRED
+  provider: fred
+  ticker_or_series: IORB
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: MVP FRED Interest on Reserve Balances.
+- metric_id: on_rrp_rate
+  display_name: ON RRP Rate
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: FRED
+  provider: fred
+  ticker_or_series: RRPONTSYAWARD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: FRED / NY Fed ON RRP award rate.
+- metric_id: on_rrp_usage
+  display_name: ON RRP Usage
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: FRED
+  provider: fred
+  ticker_or_series: RRPONTSYD
+  frequency: daily
+  unit: usd_billions
+  transform: level
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: FRED / NY Fed overnight reverse repo usage, billions of US dollars.
+- metric_id: obfr
+  display_name: OBFR
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: FRED
+  provider: fred
+  ticker_or_series: OBFR
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: FRED Overnight Bank Funding Rate.
+- metric_id: sofr_minus_effr
+  display_name: SOFR - EFFR
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Internal same-date spread from SOFR minus EFFR, in bps.
+- metric_id: iorb_minus_effr
+  display_name: IORB - EFFR
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Internal same-date spread from IORB minus EFFR, in bps.
+- metric_id: tga
+  display_name: Treasury General Account
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: FRED
+  provider: fred
+  ticker_or_series: WTREGEN
+  frequency: weekly
+  unit: usd_millions
+  transform: level
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: FRED Treasury General Account week-average level, millions of US dollars.
+- metric_id: t_bill_issuance
+  display_name: T-bill Issuance
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: placeholder
+  provider: treasury
+  ticker_or_series: TBD
+  frequency: daily
+  unit: usd_billions
+  transform: level
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned Treasury issuance data.
+- metric_id: srf_usage
+  display_name: SRF Usage
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: FRED
+  provider: fred
+  ticker_or_series: RPONTSYD
+  frequency: daily
+  unit: usd_billions
+  transform: level
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: FRED / NY Fed overnight repo Treasury securities purchased; used as public
+    repo facility usage proxy.
+- metric_id: bank_reserves
+  display_name: Bank Reserves
+  asset_class: rates
+  region: US
+  group: us_money_markets
+  source: FRED
+  provider: fred
+  ticker_or_series: WRESBAL
+  frequency: weekly
+  unit: usd_millions
+  transform: level
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: FRED reserve balances with Federal Reserve Banks, week-average level, millions
+    of US dollars.
+- metric_id: treasury_auction_net_issuance
+  display_name: Treasury Auction Net Issuance
+  asset_class: rates
+  region: US
+  group: treasury_auctions
+  source: Treasury FiscalData
+  provider: treasury
+  ticker_or_series: auctions_query
+  frequency: auction
+  unit: usd_billions
+  transform: level
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Auction issuance proxy from FiscalData offering amount less estimated publicly
+    held maturity amount by type where available; falls back to offering amount when
+    maturity field is unavailable.
+- metric_id: treasury_auction_bid_to_cover
+  display_name: Treasury Auction Bid-to-Cover
+  asset_class: rates
+  region: US
+  group: treasury_auctions
+  source: Treasury FiscalData
+  provider: treasury
+  ticker_or_series: auctions_query
+  frequency: auction
+  unit: ratio
+  transform: level
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Bid-to-cover ratio from official Treasury FiscalData auction results.
+- metric_id: treasury_auction_tail_stop
+  display_name: Treasury Auction Tail / Stop-Through
+  asset_class: rates
+  region: US
+  group: treasury_auctions
+  source: placeholder
+  provider: treasury
+  ticker_or_series: TBD
+  frequency: auction
+  unit: mixed
+  transform: level
+  chart_type: table
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Placeholder only. FiscalData does not provide when-issued yield needed
+    to calculate true tail or stop-through.
+- metric_id: treasury_auction_direct_bidders
+  display_name: Treasury Auction Direct Bidders
+  asset_class: rates
+  region: US
+  group: treasury_auctions
+  source: Treasury FiscalData
+  provider: treasury
+  ticker_or_series: auctions_query
+  frequency: auction
+  unit: percent
+  transform: level
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Direct bidder accepted amount as a share of total accepted auction amount.
+- metric_id: treasury_auction_indirect_bidders
+  display_name: Treasury Auction Indirect Bidders
+  asset_class: rates
+  region: US
+  group: treasury_auctions
+  source: Treasury FiscalData
+  provider: treasury
+  ticker_or_series: auctions_query
+  frequency: auction
+  unit: percent
+  transform: level
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Indirect bidder accepted amount as a share of total accepted auction amount.
+- metric_id: treasury_auction_primary_dealer_allocation
+  display_name: Treasury Auction Primary Dealer Allocation
+  asset_class: rates
+  region: US
+  group: treasury_auctions
+  source: Treasury FiscalData
+  provider: treasury
+  ticker_or_series: auctions_query
+  frequency: auction
+  unit: percent
+  transform: level
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Primary dealer accepted amount as a share of total accepted auction amount.
+- metric_id: hibor_on
+  display_name: HIBOR O/N
+  asset_class: rates
+  region: Hong Kong
+  group: hk_rates
+  source: HKMA official API
+  provider: hkma
+  ticker_or_series: ir_overnight
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: O/N
+  tenor_order: 1
+  curve_group: hk_hibor_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: Implemented from HKMA HIBOR fixing API; values are percent per annum; key
+    dashboard highlight tenor.
+- metric_id: hibor_1w
+  display_name: HIBOR 1W
+  asset_class: rates
+  region: Hong Kong
+  group: hk_rates
+  source: HKMA official API
+  provider: hkma
+  ticker_or_series: ir_1w
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 1W
+  tenor_order: 2
+  curve_group: hk_hibor_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Implemented from HKMA HIBOR fixing API; values are percent per annum; part
+    of populated HIBOR curve ladder.
+- metric_id: hibor_1m
+  display_name: HIBOR 1M
+  asset_class: rates
+  region: Hong Kong
+  group: hk_rates
+  source: HKMA official API
+  provider: hkma
+  ticker_or_series: ir_1m
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 1M
+  tenor_order: 3
+  curve_group: hk_hibor_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: Implemented from HKMA HIBOR fixing API; values are percent per annum; key
+    dashboard highlight tenor.
+- metric_id: hibor_3m
+  display_name: HIBOR 3M
+  asset_class: rates
+  region: Hong Kong
+  group: hk_rates
+  source: HKMA official API
+  provider: hkma
+  ticker_or_series: ir_3m
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 3M
+  tenor_order: 4
+  curve_group: hk_hibor_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: Implemented from HKMA HIBOR fixing API; values are percent per annum; key
+    dashboard highlight tenor.
+- metric_id: hibor_6m
+  display_name: HIBOR 6M
+  asset_class: rates
+  region: Hong Kong
+  group: hk_rates
+  source: HKMA official API
+  provider: hkma
+  ticker_or_series: ir_6m
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 6M
+  tenor_order: 5
+  curve_group: hk_hibor_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: Implemented from HKMA HIBOR fixing API; values are percent per annum; key
+    dashboard highlight tenor.
+- metric_id: hibor_12m
+  display_name: HIBOR 12M
+  asset_class: rates
+  region: Hong Kong
+  group: hk_rates
+  source: HKMA official API
+  provider: hkma
+  ticker_or_series: ir_12m
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 12M
+  tenor_order: 6
+  curve_group: hk_hibor_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Implemented from HKMA HIBOR fixing API; values are percent per annum; part
+    of populated HIBOR curve ladder.
+- metric_id: hkma_aggregate_balance
+  display_name: HKMA Aggregate Balance
+  asset_class: rates
+  region: Hong Kong
+  group: hk_rates
+  source: HKMA official API
+  provider: hkma
+  ticker_or_series: aggr_balance_af_disc_win
+  frequency: daily
+  unit: hkd_million
+  transform: level
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: Implemented from HKMA monetary base API when available; falls back to interbank
+    liquidity closing balance if needed. Values are HKD million.
+- metric_id: hibor_on_minus_sofr
+  display_name: HIBOR O/N - SOFR
+  asset_class: rates
+  region: Hong Kong
+  group: hk_rates
+  source: computed
+  provider: internal
+  ticker_or_series: hibor_on-sofr
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: 'Implemented MVP proxy: same-date HIBOR minus daily SOFR in bps; not matched-tenor
+    HKD/USD OIS.'
+- metric_id: hibor_1m_minus_sofr
+  display_name: HIBOR 1M - SOFR
+  asset_class: rates
+  region: Hong Kong
+  group: hk_rates
+  source: computed
+  provider: internal
+  ticker_or_series: hibor_1m-sofr
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: 'Implemented MVP proxy: same-date HIBOR minus daily SOFR in bps; not matched-tenor
+    HKD/USD OIS.'
+- metric_id: hibor_3m_minus_sofr
+  display_name: HIBOR 3M - SOFR
+  asset_class: rates
+  region: Hong Kong
+  group: hk_rates
+  source: computed
+  provider: internal
+  ticker_or_series: hibor_3m-sofr
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: 'Implemented MVP proxy: same-date HIBOR minus daily SOFR in bps; not matched-tenor
+    HKD/USD OIS.'
+- metric_id: hibor_6m_minus_sofr
+  display_name: HIBOR 6M - SOFR
+  asset_class: rates
+  region: Hong Kong
+  group: hk_rates
+  source: computed
+  provider: internal
+  ticker_or_series: hibor_6m-sofr
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: 'Implemented MVP proxy: same-date HIBOR minus daily SOFR in bps; not matched-tenor
+    HKD/USD OIS.'
+- metric_id: cgb_2y
+  display_name: CGB 2Y Yield
+  asset_class: rates
+  region: China
+  group: cn_rates
+  source: manual CSV fallback
+  provider: manual_china
+  ticker_or_series: cgb_2y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned China rates metric; use data/manual/china_rates.csv when a stable live source is unavailable.
+- metric_id: cgb_5y
+  display_name: CGB 5Y Yield
+  asset_class: rates
+  region: China
+  group: cn_rates
+  source: manual CSV fallback
+  provider: manual_china
+  ticker_or_series: cgb_5y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned China rates metric; use data/manual/china_rates.csv when a stable live source is unavailable.
+- metric_id: cgb_10y
+  display_name: CGB 10Y Yield
+  asset_class: rates
+  region: China
+  group: cn_rates
+  source: manual CSV fallback
+  provider: manual_china
+  ticker_or_series: cgb_10y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned China rates metric; use data/manual/china_rates.csv when a stable live source is unavailable.
+- metric_id: cgb_30y
+  display_name: CGB 30Y Yield
+  asset_class: rates
+  region: China
+  group: cn_rates
+  source: manual CSV fallback
+  provider: manual_china
+  ticker_or_series: cgb_30y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned China rates metric; use data/manual/china_rates.csv when a stable live source is unavailable.
+- metric_id: dr007
+  display_name: DR007
+  asset_class: rates
+  region: China
+  group: cn_rates
+  source: manual CSV fallback
+  provider: manual_china
+  ticker_or_series: dr007
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned China money-market metric; use data/manual/china_rates.csv when a stable live source is unavailable.
+- metric_id: fr007
+  display_name: FR007
+  asset_class: rates
+  region: China
+  group: cn_rates
+  source: manual CSV fallback
+  provider: manual_china
+  ticker_or_series: fr007
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned China money-market metric; use data/manual/china_rates.csv when a stable live source is unavailable.
+- metric_id: mlf
+  display_name: MLF
+  asset_class: rates
+  region: China
+  group: cn_rates
+  source: manual CSV fallback
+  provider: manual_china
+  ticker_or_series: mlf
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned China policy-rate metric; use data/manual/china_rates.csv when a stable live source is unavailable.
+- metric_id: slf
+  display_name: SLF
+  asset_class: rates
+  region: China
+  group: cn_rates
+  source: manual CSV fallback
+  provider: manual_china
+  ticker_or_series: slf
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned China policy-rate metric; use data/manual/china_rates.csv when a stable live source is unavailable.
+- metric_id: lpr
+  display_name: LPR
+  asset_class: rates
+  region: China
+  group: cn_rates
+  source: manual CSV fallback
+  provider: manual_china
+  ticker_or_series: lpr
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned China policy-rate metric; use data/manual/china_rates.csv when a stable live source is unavailable.
+- metric_id: boj_policy_pricing
+  display_name: BOJ Policy Pricing
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned Japan rates metric; stable free BOJ policy-pricing source not implemented.
+- metric_id: jgb_on
+  display_name: JGB O/N Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned Japan overnight rate; MOF JGB curve CSV starts at 1Y.
+- metric_id: jgb_1y
+  display_name: JGB 1Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 1Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 1Y
+  tenor_order: 1
+  curve_group: jp_jgb_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; part of full available JGB tenor ladder.
+- metric_id: jgb_2y
+  display_name: JGB 2Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 2Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 2Y
+  tenor_order: 2
+  curve_group: jp_jgb_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; key highlighted tenor.
+- metric_id: jgb_3y
+  display_name: JGB 3Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 3Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 3Y
+  tenor_order: 3
+  curve_group: jp_jgb_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; part of full available JGB tenor ladder.
+- metric_id: jgb_4y
+  display_name: JGB 4Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 4Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 4Y
+  tenor_order: 4
+  curve_group: jp_jgb_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; part of full available JGB tenor ladder.
+- metric_id: jgb_5y
+  display_name: JGB 5Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 5Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 5Y
+  tenor_order: 5
+  curve_group: jp_jgb_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; key highlighted tenor.
+- metric_id: jgb_6y
+  display_name: JGB 6Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 6Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 6Y
+  tenor_order: 6
+  curve_group: jp_jgb_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; part of full available JGB tenor ladder.
+- metric_id: jgb_7y
+  display_name: JGB 7Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 7Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 7Y
+  tenor_order: 7
+  curve_group: jp_jgb_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; part of full available JGB tenor ladder.
+- metric_id: jgb_8y
+  display_name: JGB 8Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 8Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 8Y
+  tenor_order: 8
+  curve_group: jp_jgb_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; part of full available JGB tenor ladder.
+- metric_id: jgb_9y
+  display_name: JGB 9Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 9Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 9Y
+  tenor_order: 9
+  curve_group: jp_jgb_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; part of full available JGB tenor ladder.
+- metric_id: jgb_10y
+  display_name: JGB 10Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 10Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 10Y
+  tenor_order: 10
+  curve_group: jp_jgb_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; key highlighted tenor.
+- metric_id: jgb_15y
+  display_name: JGB 15Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 15Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 15Y
+  tenor_order: 11
+  curve_group: jp_jgb_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; part of full available JGB tenor ladder.
+- metric_id: jgb_20y
+  display_name: JGB 20Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 20Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 20Y
+  tenor_order: 12
+  curve_group: jp_jgb_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; part of full available JGB tenor ladder.
+- metric_id: jgb_25y
+  display_name: JGB 25Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 25Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 25Y
+  tenor_order: 13
+  curve_group: jp_jgb_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; part of full available JGB tenor ladder.
+- metric_id: jgb_30y
+  display_name: JGB 30Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 30Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 30Y
+  tenor_order: 14
+  curve_group: jp_jgb_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; key highlighted tenor.
+- metric_id: jgb_40y
+  display_name: JGB 40Y Yield
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: Japan MOF
+  provider: mof
+  ticker_or_series: 40Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 40Y
+  tenor_order: 15
+  curve_group: jp_jgb_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: Japan MOF constant-maturity JGB interest rate; part of full available JGB tenor ladder.
+- metric_id: jpy_3m_ois
+  display_name: JPY 3M OIS
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned Japan rates metric; no stable free JPY OIS source implemented.
+- metric_id: jpy_3m_ois_spread_vs_us
+  display_name: JPY 3M OIS Spread vs US
+  asset_class: rates
+  region: Japan
+  group: jp_rates
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned Japan rates metric; depends on unavailable free JPY OIS source.
+- metric_id: eur_on_rate
+  display_name: EUR O/N Rate
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: EST/B.EU000A2X2A25.WT
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: ECB euro short-term rate, volume-weighted trimmed mean unsecured overnight rate.
+- metric_id: eur_3m_yield
+  display_name: EUR 3M Yield
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_3M
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 3M
+  tenor_order: 1
+  curve_group: eur_yield_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: ECB euro area yield curve spot rate; part of full available EUR tenor ladder.
+- metric_id: eur_6m_yield
+  display_name: EUR 6M Yield
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_6M
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 6M
+  tenor_order: 2
+  curve_group: eur_yield_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: ECB euro area yield curve spot rate; part of full available EUR tenor ladder.
+- metric_id: eur_1y_yield
+  display_name: EUR 1Y Yield
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_1Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 1Y
+  tenor_order: 3
+  curve_group: eur_yield_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: ECB euro area yield curve spot rate; part of full available EUR tenor ladder.
+- metric_id: eur_2y_yield
+  display_name: EUR 2Y Yield
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_2Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 2Y
+  tenor_order: 4
+  curve_group: eur_yield_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: ECB euro area yield curve spot rate; key highlighted tenor.
+- metric_id: eur_3y_yield
+  display_name: EUR 3Y Yield
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_3Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 3Y
+  tenor_order: 5
+  curve_group: eur_yield_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: ECB euro area yield curve spot rate; part of full available EUR tenor ladder.
+- metric_id: eur_5y_yield
+  display_name: EUR 5Y Yield
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_5Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 5Y
+  tenor_order: 6
+  curve_group: eur_yield_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: ECB euro area yield curve spot rate; key highlighted tenor.
+- metric_id: eur_7y_yield
+  display_name: EUR 7Y Yield
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_7Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 7Y
+  tenor_order: 7
+  curve_group: eur_yield_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: ECB euro area yield curve spot rate; part of full available EUR tenor ladder.
+- metric_id: eur_10y_yield
+  display_name: EUR 10Y Yield
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 10Y
+  tenor_order: 8
+  curve_group: eur_yield_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: ECB euro area yield curve spot rate; key highlighted tenor.
+- metric_id: eur_20y_yield
+  display_name: EUR 20Y Yield
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_20Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 20Y
+  tenor_order: 9
+  curve_group: eur_yield_curve
+  highlight_on_curve: false
+  is_curve_tenor: true
+  is_derived: false
+  notes: ECB euro area yield curve spot rate; part of full available EUR tenor ladder.
+- metric_id: eur_30y_yield
+  display_name: EUR 30Y Yield
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_30Y
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: curve
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  tenor: 30Y
+  tenor_order: 10
+  curve_group: eur_yield_curve
+  highlight_on_curve: true
+  is_curve_tenor: true
+  is_derived: false
+  notes: ECB euro area yield curve spot rate; key highlighted tenor.
+- metric_id: ecb_deposit_rate
+  display_name: ECB Deposit Rate
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: FM/D.U2.EUR.4F.KR.DFR.LEV
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: ECB deposit facility rate from ECB Data Portal.
+- metric_id: ecb_main_refi_rate
+  display_name: ECB Main Refinancing Rate
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: FM/D.U2.EUR.4F.KR.MRR_FR.LEV
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: ECB main refinancing operations fixed rate from ECB Data Portal.
+- metric_id: ecb_marginal_lending_rate
+  display_name: ECB Marginal Lending Rate
+  asset_class: rates
+  region: Europe
+  group: eu_rates
+  source: ECB Data Portal
+  provider: ecb
+  ticker_or_series: FM/D.U2.EUR.4F.KR.MLFR.LEV
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: ECB marginal lending facility rate from ECB Data Portal.
+- metric_id: eurusd_3m_yield_diff
+  display_name: EURUSD 3M Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  is_derived: true
+  notes: Computed as EUR 3M yield minus US 3M Treasury bill yield, in bps.
+- metric_id: eurusd_2y_yield_diff
+  display_name: EURUSD 2Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  is_derived: true
+  notes: Computed as EUR 2Y yield minus US 2Y Treasury yield, in bps.
+- metric_id: eurusd_10y_yield_diff
+  display_name: EURUSD 10Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  is_derived: true
+  notes: Computed as EUR 10Y yield minus US 10Y Treasury yield, in bps.
+- metric_id: usdjpy_3m_yield_diff
+  display_name: USDJPY 3M Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdjpy_2y_yield_diff
+  display_name: USDJPY 2Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  is_derived: true
+  notes: Computed as JGB 2Y yield minus US 2Y Treasury yield, in bps.
+- metric_id: usdjpy_10y_yield_diff
+  display_name: USDJPY 10Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  is_derived: true
+  notes: Computed as JGB 10Y yield minus US 10Y Treasury yield, in bps.
+- metric_id: usdkrw_3m_yield_diff
+  display_name: USDKRW 3M Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdkrw_2y_yield_diff
+  display_name: USDKRW 2Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdkrw_10y_yield_diff
+  display_name: USDKRW 10Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdtwd_3m_yield_diff
+  display_name: USDTWD 3M Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdtwd_2y_yield_diff
+  display_name: USDTWD 2Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdtwd_10y_yield_diff
+  display_name: USDTWD 10Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdcny_3m_yield_diff
+  display_name: USDCNY 3M Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdcny_2y_yield_diff
+  display_name: USDCNY 2Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdcny_10y_yield_diff
+  display_name: USDCNY 10Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: cnycnh_3m_yield_diff
+  display_name: CNYCNH 3M Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: cnycnh_2y_yield_diff
+  display_name: CNYCNH 2Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: cnycnh_10y_yield_diff
+  display_name: CNYCNH 10Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdidr_3m_yield_diff
+  display_name: USDIDR 3M Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdidr_2y_yield_diff
+  display_name: USDIDR 2Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdidr_10y_yield_diff
+  display_name: USDIDR 10Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdinr_3m_yield_diff
+  display_name: USDINR 3M Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdinr_2y_yield_diff
+  display_name: USDINR 2Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: usdinr_10y_yield_diff
+  display_name: USDINR 10Y Yield Differential
+  asset_class: rates
+  region: Cross-country
+  group: cross_country_yield_differentials
+  source: computed
+  provider: internal
+  ticker_or_series: computed
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned cross-country yield differential; underlying country curves not fully
+    implemented yet.
+- metric_id: us_ig_oas
+  display_name: US IG OAS
+  asset_class: credit
+  region: US
+  group: credit_spreads
+  source: FRED
+  provider: fred
+  ticker_or_series: BAMLC0A0CM
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: MVP FRED ICE BofA US Corporate OAS.
+- metric_id: us_hy_oas
+  display_name: US HY OAS
+  asset_class: credit
+  region: US
+  group: credit_spreads
+  source: FRED
+  provider: fred
+  ticker_or_series: BAMLH0A0HYM2
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: MVP FRED ICE BofA US High Yield OAS.
+- metric_id: eu_ig_oas
+  display_name: EU IG OAS
+  asset_class: credit
+  region: Europe
+  group: credit_spreads
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: false
+  notes: Planned Europe investment-grade credit spread; no verified stable free FRED series found in Task 8.
+- metric_id: eu_hy_oas
+  display_name: EU HY OAS
+  asset_class: credit
+  region: Europe
+  group: credit_spreads
+  source: FRED
+  provider: fred
+  ticker_or_series: BAMLHE00EHYIOAS
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: false
+  implemented: true
+  notes: FRED ICE BofA Euro High Yield Index Option-Adjusted Spread.
+- metric_id: eurusd
+  display_name: EURUSD
+  asset_class: fx
+  region: Global
+  group: fx_spot
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: EURUSD=X
+  frequency: daily
+  unit: exchange_rate
+  transform: percentage_return
+  chart_type: line
+  fallback_source: alpha_vantage
+  premium_required: false
+  implemented: true
+  notes: MVP yfinance FX spot.
+- metric_id: usdhkd
+  display_name: USDHKD
+  asset_class: fx
+  region: Global
+  group: fx_spot
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: HKD=X
+  frequency: daily
+  unit: exchange_rate
+  transform: percentage_return
+  chart_type: line
+  fallback_source: alpha_vantage
+  premium_required: false
+  implemented: true
+  notes: MVP yfinance FX spot.
+- metric_id: usdjpy
+  display_name: USDJPY
+  asset_class: fx
+  region: Global
+  group: fx_spot
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: JPY=X
+  frequency: daily
+  unit: exchange_rate
+  transform: percentage_return
+  chart_type: line
+  fallback_source: alpha_vantage
+  premium_required: false
+  implemented: true
+  notes: MVP yfinance FX spot.
+- metric_id: usdkrw
+  display_name: USDKRW
+  asset_class: fx
+  region: Global
+  group: fx_spot
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: KRW=X
+  frequency: daily
+  unit: exchange_rate
+  transform: percentage_return
+  chart_type: line
+  fallback_source: alpha_vantage
+  premium_required: false
+  implemented: true
+  notes: yfinance FX spot.
+- metric_id: usdtwd
+  display_name: USDTWD
+  asset_class: fx
+  region: Global
+  group: fx_spot
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: TWD=X
+  frequency: daily
+  unit: exchange_rate
+  transform: percentage_return
+  chart_type: line
+  fallback_source: alpha_vantage
+  premium_required: false
+  implemented: true
+  notes: yfinance FX spot.
+- metric_id: usdcny
+  display_name: USDCNY
+  asset_class: fx
+  region: Global
+  group: fx_spot
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: CNY=X
+  frequency: daily
+  unit: exchange_rate
+  transform: percentage_return
+  chart_type: line
+  fallback_source: alpha_vantage
+  premium_required: false
+  implemented: true
+  notes: yfinance FX spot.
+- metric_id: cnycnh
+  display_name: CNYCNH
+  asset_class: fx
+  region: Global
+  group: fx_spot
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: CNYCNH=X
+  frequency: daily
+  unit: exchange_rate
+  transform: percentage_return
+  chart_type: line
+  fallback_source: alpha_vantage
+  premium_required: false
+  implemented: true
+  notes: yfinance CNH/CNY cross used as a free CNYCNH proxy; verify convention before
+    trading use.
+- metric_id: usdidr
+  display_name: USDIDR
+  asset_class: fx
+  region: Global
+  group: fx_spot
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: IDR=X
+  frequency: daily
+  unit: exchange_rate
+  transform: percentage_return
+  chart_type: line
+  fallback_source: alpha_vantage
+  premium_required: false
+  implemented: true
+  notes: yfinance FX spot.
+- metric_id: usdinr
+  display_name: USDINR
+  asset_class: fx
+  region: Global
+  group: fx_spot
+  source: public_market_data
+  provider: yfinance
+  ticker_or_series: INR=X
+  frequency: daily
+  unit: exchange_rate
+  transform: percentage_return
+  chart_type: line
+  fallback_source: alpha_vantage
+  premium_required: false
+  implemented: true
+  notes: yfinance FX spot.
+- metric_id: eurusd_3m_implied_vol
+  display_name: EURUSD 3M Implied Vol
+  asset_class: fx_volatility
+  region: Global
+  group: fx_implied_vol
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: eurusd_6m_implied_vol
+  display_name: EURUSD 6M Implied Vol
+  asset_class: fx_volatility
+  region: Global
+  group: fx_implied_vol
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: eurusd_12m_implied_vol
+  display_name: EURUSD 12M Implied Vol
+  asset_class: fx_volatility
+  region: Global
+  group: fx_implied_vol
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: usdhkd_3m_implied_vol
+  display_name: USDHKD 3M Implied Vol
+  asset_class: fx_volatility
+  region: Global
+  group: fx_implied_vol
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: usdhkd_6m_implied_vol
+  display_name: USDHKD 6M Implied Vol
+  asset_class: fx_volatility
+  region: Global
+  group: fx_implied_vol
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: usdhkd_12m_implied_vol
+  display_name: USDHKD 12M Implied Vol
+  asset_class: fx_volatility
+  region: Global
+  group: fx_implied_vol
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: usdjpy_3m_implied_vol
+  display_name: USDJPY 3M Implied Vol
+  asset_class: fx_volatility
+  region: Global
+  group: fx_implied_vol
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: usdjpy_6m_implied_vol
+  display_name: USDJPY 6M Implied Vol
+  asset_class: fx_volatility
+  region: Global
+  group: fx_implied_vol
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: usdjpy_12m_implied_vol
+  display_name: USDJPY 12M Implied Vol
+  asset_class: fx_volatility
+  region: Global
+  group: fx_implied_vol
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: usdcnh_3m_implied_vol
+  display_name: USDCNH 3M Implied Vol
+  asset_class: fx_volatility
+  region: Global
+  group: fx_implied_vol
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: usdcnh_6m_implied_vol
+  display_name: USDCNH 6M Implied Vol
+  asset_class: fx_volatility
+  region: Global
+  group: fx_implied_vol
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: usdcnh_12m_implied_vol
+  display_name: USDCNH 12M Implied Vol
+  asset_class: fx_volatility
+  region: Global
+  group: fx_implied_vol
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: percent
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: eurusd_cross_currency_basis
+  display_name: EURUSD Cross-Currency Basis
+  asset_class: rates
+  region: Global
+  group: cross_currency_basis
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: usdhkd_cross_currency_basis
+  display_name: USDHKD Cross-Currency Basis
+  asset_class: rates
+  region: Global
+  group: cross_currency_basis
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: usdjpy_cross_currency_basis
+  display_name: USDJPY Cross-Currency Basis
+  asset_class: rates
+  region: Global
+  group: cross_currency_basis
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
+- metric_id: usdcnh_cross_currency_basis
+  display_name: USDCNH Cross-Currency Basis
+  asset_class: rates
+  region: Global
+  group: cross_currency_basis
+  source: placeholder
+  provider: tbd
+  ticker_or_series: TBD
+  frequency: daily
+  unit: basis_points
+  transform: bps_change
+  chart_type: line
+  fallback_source: none
+  premium_required: true
+  implemented: false
+  notes: Premium-required placeholder; source not implemented yet.
